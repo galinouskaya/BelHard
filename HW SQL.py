@@ -1,7 +1,7 @@
-# import sqlite3
-#
-# conn = sqlite3.connect('HW.sqlite3')
-# cur = conn.cursor()
+import sqlite3
+
+conn = sqlite3.connect('HW.sqlite3')
+cur = conn.cursor()
 # cur.execute('''
 #     CREATE TABLE IF NOT EXISTS users(
 #     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -60,41 +60,43 @@
 #     ''')
 # conn.commit()
 
-# cur.executemany('''
-#     INSERT INTO users (name, email)
-#     VALUES (?, ?);
-#     ''', (('vasia', 'vasia@mail.ru'), ('masha', 'masha@mail.ru'), ('boris', 'boris@mail.ru')))
-# conn.commit()
+cur.executemany('''
+    INSERT INTO users (name, email)
+    VALUES (?, ?);
+    ''', (('vasia', 'vasia@mail.ru'), ('masha', 'masha@mail.ru'), ('boris', 'boris@mail.ru')))
+conn.commit()
 
-# cur.executemany('''
-#     INSERT INTO categories (name)
-#     VALUES (?);
-#     ''', (('set',), ('roll',), ('lunch',), ('dessert',)))
-# conn.commit()
+cur.executemany('''
+    INSERT INTO categories (name)
+    VALUES (?);
+    ''', (('set',), ('roll',), ('lunch',), ('dessert',)))
+conn.commit()
 
-# cur.executemany('''
-#     INSERT INTO products (title, description, category_id)
-#     VALUES (?, ?, ?)
-#     ''', (('santa set', '1171g/40p', '1'),
-#           ('philadelphia', '', '2'),
-#           ('monday', '', '3'),
-#           ('fruto muki', '220g/6p', '4')))
-# conn.commit()
+cur.executemany('''
+    INSERT INTO products (title, description, category_id)
+    VALUES (?, ?, ?)
+    ''', (('santa set', '1171g/40p', '1'),
+          ('philadelphia', '', '2'),
+          ('monday', '', '3'),
+          ('fruto muki', '220g/6p', '4')))
+conn.commit()
 
-# cur.executemany('''
-#     INSERT INTO statuses (name)
-#     VALUES (?)
-#     ''', (('received',), ('collected',), ('on the way',), ('delivered',)))
-# conn.commit()
+cur.executemany('''
+    INSERT INTO statuses (name)
+    VALUES (?)
+    ''', (('received',), ('collected',), ('on the way',), ('delivered',)))
+conn.commit()
 
-# cur.executemany('''
-#     INSERT INTO orders (user_id, status_id)
-#     VALUES (?, ?)
-#     ''', (('2', '3'), ('1', '4'), ('3', '1')))
-# conn.commit()
+cur.executemany('''
+    INSERT INTO orders (user_id, status_id)
+    VALUES (?, ?)
+    ''', (('2', '3'), ('1', '4'), ('3', '1')))
+conn.commit()
 
-# cur.executemany('''
-#     INSERT INTO order_items (order_id, product_id)
-#     VALUES (?, ?)
-#     ''', (('2', '3'), ('3', '1'), ('1', '4'), ('1', '2'), ('1', '3')))
-# conn.commit()
+cur.executemany('''
+    INSERT INTO order_items (order_id, product_id)
+    VALUES (?, ?)
+    ''', (('2', '3'), ('3', '1'), ('1', '4'), ('1', '2'), ('1', '3')))
+conn.commit()
+
+
